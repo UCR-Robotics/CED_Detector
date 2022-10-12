@@ -1,0 +1,42 @@
+# config for test_keypoint.cpp
+test_kp_config:
+  keypoint_method: "ced6d"  # options: random, iss, sift, harris3d, harris6d, ced3d, ced6d
+  log_filename: "../results/keypoint_log.csv"
+  source_cloud: "../data/redwood_scan/loft/mesh_240.pcd"
+  save_cloud_to_file: "../results/cloud.pcd"
+  save_keypoint_to_file: "../results/keypoint.pcd"
+  pcl_visualization: false
+
+# config for test_registration.cpp
+test_reg_config:
+  keypoint_method: "ced6d"  # options: random, iss, sift, harris3d, harris6d, ced3d, ced6d
+  log_filename: "../results/registration_log.csv"
+  source_cloud: "../data/redwood_scan/loft/mesh_240.pcd"
+  target_cloud: "../data/redwood_scan/loft/mesh_242.pcd"
+
+# config for perception.h
+perception_config:
+  # common parameters
+  verbose: true
+  logging: true
+  downsample: true
+  estimate_normal: true
+  num_thread: 1
+  voxel_resolution: 0.01
+  normal_est_radius: 0.03
+  min_neighbors: 5
+  keypoint_search_radius: 0.05
+  non_max_radius: 0.05
+  feature_search_radius: 0.05
+  # keypoint method parameters
+  iss_gamma21: 0.975
+  iss_gamma32: 0.975
+  ced3d_centroid: 0.2
+  ced6d_centroid: 0.2
+  ced6d_centroid_rgb: 0.1
+  harris_threshold: 0.000001
+  num_random_keypoints: 300
+  sift_min_scale: 0.01
+  sift_n_octaves: 3
+  sift_n_scales_per_octave: 2
+  sift_min_contrast: 0.01

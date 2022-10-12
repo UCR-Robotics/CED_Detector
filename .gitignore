@@ -1,0 +1,6 @@
+*~
+*.pyc
+*.asv
+.vscode
+.DS_Store
+build/
