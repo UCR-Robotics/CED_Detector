@@ -21,22 +21,22 @@ perception_config:
   logging: true
   downsample: true
   estimate_normal: true
-  num_thread: 1
-  voxel_resolution: 0.01
-  normal_est_radius: 0.03
-  min_neighbors: 5
-  keypoint_search_radius: 0.05
-  non_max_radius: 0.05
-  feature_search_radius: 0.05
+  num_thread: 1                 # some methods can be accelerated by using multiple threads 
+  voxel_resolution: 0.01        # meter, downsample point clouds to this resolution
+  normal_est_radius: 0.03       # meter, the search radius to find neighbor points for normal estimation
+  min_neighbors: 5              # the number of neighbor points required for a valid keypoint
+  keypoint_search_radius: 0.05  # meter, the search radius to find neighbor points for keypoint detection
+  non_max_radius: 0.05          # meter, the search radius to find neighbor points for non-maximum suppression
+  feature_search_radius: 0.05   # meter, the search radius to find neighbor points for computing feature descriptors
   # keypoint method parameters
-  iss_gamma21: 0.975
-  iss_gamma32: 0.975
-  ced3d_centroid: 0.2
-  ced6d_centroid: 0.2
-  ced6d_centroid_rgb: 0.1
-  harris_threshold: 0.000001
-  num_random_keypoints: 300
-  sift_min_scale: 0.01
-  sift_n_octaves: 3
-  sift_n_scales_per_octave: 2
-  sift_min_contrast: 0.01
+  num_random_keypoints: 300     # the number of keypoints to be generated at random
+  iss_gamma21: 0.975            # the upper bound on the ratio between the second and the first eigenvalue
+  iss_gamma32: 0.975            # the upper bound on the ratio between the third and the second eigenvalue
+  sift_min_scale: 0.01          # meter, the standard deviation of the smallest scale in the scale space
+  sift_n_octaves: 3             # the number of octaves (i.e. doublings of scale) to compute 
+  sift_n_scales_per_octave: 2   # the number of scales to compute within each octave
+  sift_min_contrast: 0.01       # the minimum contrast required (to filter out keypoints without sufficient contrast)
+  harris_threshold: 0.000001    # the lower bound on Harris response, to filter out weak corners
+  ced3d_centroid: 0.2           # the lower bound on the ratio of centroid distance to search radius in 3D space
+  ced6d_centroid: 0.2           # the lower bound on the ratio of centroid distance to search radius in 3D space
+  ced6d_centroid_rgb: 0.1       # the lower bound on the L1 distance in RGB color space (with [0,1] in each dimension)
